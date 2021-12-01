@@ -1,6 +1,7 @@
 return require('packer').startup(function()
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
+
   use 'nvim-lua/plenary.nvim' -- many plugins use this
   use 'nvim-lua/popup.nvim'
 
@@ -8,15 +9,13 @@ return require('packer').startup(function()
   use 'ThePrimeagen/harpoon'
 
   -- theme
-  use {"ellisonleao/gruvbox.nvim", requires = {"rktjmp/lush.nvim"}} -- Gruvbox
-  use "EdenEast/nightfox.nvim"
-
-  -- logos syntax (tweaks dev)
-  use 'decrement/logos.vim'
+  use "gruvbox-community/gruvbox"
 
   -- Programming langs
+  use 'decrement/logos.vim'
   use 'rust-lang/rust.vim'
   use 'ziglang/zig.vim'
+  use 'ray-x/go.nvim'
 
   -- Telescope
   use 'nvim-telescope/telescope.nvim'
@@ -25,8 +24,11 @@ return require('packer').startup(function()
 
   -- lsp config
   use 'neovim/nvim-lspconfig'
+  -- use 'glepnir/lspsaga.nvim'
+  use 'tami5/lspsaga.nvim'
 
   -- lsp completion
+  use 'onsails/lspkind-nvim'
   use 'hrsh7th/cmp-nvim-lsp'
   use 'hrsh7th/cmp-nvim-lua'
   use 'hrsh7th/cmp-buffer'
