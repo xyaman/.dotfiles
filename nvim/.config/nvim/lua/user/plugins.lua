@@ -29,9 +29,42 @@ return packer.startup(function(use)
   use "wbthomason/packer.nvim" -- Have packer manage itself
   use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
   use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugin
-  
 
+  use "windwp/nvim-autopairs"
+  use "numToStr/Comment.nvim"
+  use "lewis6991/gitsigns.nvim"
+  use "ThePrimeagen/harpoon"
 
+  -- Themes
+  use "navarasu/onedark.nvim"
+
+  -- Programming Languages
+  use "ziglang/zig.vim"
+
+  -- NvimTree + Bufferline
+  use "kyazdani42/nvim-web-devicons" -- for file icons
+  use "kyazdani42/nvim-tree.lua"
+
+  -- Treesitter
+  use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }
+
+  -- cmp plugins
+  use "hrsh7th/nvim-cmp" -- Completion plugin
+  use "hrsh7th/cmp-buffer" -- Buffer completions
+  use "hrsh7th/cmp-path" -- Paths completions
+  use "hrsh7th/cmp-cmdline" -- cmdline completions
+  use "saadparwaiz1/cmp_luasnip" -- snippets completions
+  use "hrsh7th/cmp-nvim-lsp" -- lsp completions
+
+  -- snippets
+  use "L3MON4D3/LuaSnip" -- Snippet engine
+  use "rafamadriz/friendly-snippets" -- a bunch to snippets to use
+
+  -- LSP
+  use "neovim/nvim-lspconfig"
+  use "williamboman/nvim-lsp-installer"
+
+  use "nvim-telescope/telescope.nvim"
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
