@@ -1,6 +1,7 @@
-require("onedark").setup {
-  style = "dark",
-  transparent = true
-}
+vim.g.catppuccin_flavour = "macchiato" -- latte, frappe, macchiato, mocha
 
-require("onedark").load()
+require("catppuccin").setup({
+  transparent_background = true,
+})
+
+vim.cmd [[colorscheme catppuccin]]

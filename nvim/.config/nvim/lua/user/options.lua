@@ -11,8 +11,9 @@ vim.opt.splitbelow = true         -- force all horizontal splits go below of cur
 vim.opt.splitright = true         -- force all vertical splits go to the right of current window
 vim.opt.updatetime = 300          -- faster completion (3000ms default)
 vim.opt.wrap = false              -- displays line as one long line
-vim.opt.scrolloff = 8
 vim.opt.completeopt = { "menuone", "noselect" }
+vim.opt.colorcolumn = "80"
+vim.opt.hlsearch = false
 
 vim.cmd [[set iskeyword+=-]]
 

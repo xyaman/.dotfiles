@@ -36,7 +36,7 @@ return packer.startup(function(use)
   use "ThePrimeagen/harpoon"
 
   -- Themes
-  use "navarasu/onedark.nvim"
+  use { "catppuccin/nvim", as = "catppuccin" } 
 
   -- Programming Languages
   use "ziglang/zig.vim"
