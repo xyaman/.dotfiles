@@ -1,14 +1,14 @@
 require "user.options"
-require "user.keymaps"
-require "user.plugins"
-require "user.colorscheme"
-require "user.completion"
-require "user.lsp"
+require "xyaman.keymaps"
+require "xyaman.lazy"
+require "xyaman.lsp"
+require "xyaman.colorscheme"
 
--- Plugins
-require "user.telescope"
-require "user.treesitter"
-require "user.autopairs"
-require "user.comment"
-require "user.gitsigns"
-require "user.nvimtree"
+require "xyaman.telescope"
+require "xyaman.treesitter"
+
+-- -- Plugins
+-- require "user.autopairs"
+-- require "user.comment"
+-- require "user.gitsigns"
+-- require "user.nvimtree"

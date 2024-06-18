@@ -41,20 +41,20 @@ set_keymap("v", "p", '"_dP', opts)
 
 -- Telescope --
 -- Find files
-set_keymap("n", "<leader>f", "<cmd>Telescope find_files<CR>", opts)
-
--- NvimTree --
--- Toggle
-set_keymap("n", "<C-n>", ":NvimTreeToggle<CR>", opts)
-
--- Harpoon --
--- Show menu
-set_keymap("n", "<leader>ss", ":lua require('harpoon.ui').toggle_quick_menu()<CR>", opts)
-
--- Add file
-set_keymap("n", "<leader>sa", ":lua require('harpoon.mark').add_file()<CR>", opts)
-
--- Move to files
-set_keymap("n", "<leader>sj", ":lua require('harpoon.ui').nav_file(1)<CR>", opts)
-set_keymap("n", "<leader>sk", ":lua require('harpoon.ui').nav_file(2)<CR>", opts)
-set_keymap("n", "<leader>sl", ":lua require('harpoon.ui').nav_file(3)<CR>", opts)
+-- set_keymap("n", "<leader>f", "<cmd>Telescope find_files<CR>", opts)
+-- 
+-- -- NvimTree --
+-- -- Toggle
+-- set_keymap("n", "<C-n>", ":NvimTreeToggle<CR>", opts)
+-- 
+-- -- Harpoon --
+-- -- Show menu
+-- set_keymap("n", "<leader>ss", ":lua require('harpoon.ui').toggle_quick_menu()<CR>", opts)
+-- 
+-- -- Add file
+-- set_keymap("n", "<leader>sa", ":lua require('harpoon.mark').add_file()<CR>", opts)
+-- 
+-- -- Move to files
+-- set_keymap("n", "<leader>sj", ":lua require('harpoon.ui').nav_file(1)<CR>", opts)
+-- set_keymap("n", "<leader>sk", ":lua require('harpoon.ui').nav_file(2)<CR>", opts)
+-- set_keymap("n", "<leader>sl", ":lua require('harpoon.ui').nav_file(3)<CR>", opts)
