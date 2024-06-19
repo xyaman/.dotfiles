@@ -1,0 +1,30 @@
+! English (Real Programmers Qwerty)
+
+keycode 49 = grave asciitilde
+keycode 10 = asterisk 1
+keycode 11 = bracketleft 2
+keycode 12 = braceleft 3
+keycode 13 = parenleft 4
+keycode 14 = numbersign 5
+keycode 15 = asciicircum 6
+keycode 16 = parenright 7
+keycode 17 = braceright 8
+keycode 18 = bracketright 9
+keycode 19 = dollar 0
+keycode 20 = minus underscore
+keycode 21 = equal plus
+
+keycode 34 = ampersand percent
+keycode 35 = exclam at
+
+keycode 47 = semicolon colon
+keycode 48 = apostrophe quotedbl
+
+keycode 59 = comma less
+keycode 60 = period greater
+keycode 61 = slash question
+
+keycode 51 = backslash bar
+
+keycode 94 = percent at
+

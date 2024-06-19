@@ -32,3 +32,28 @@ local plugins = {
 local opts = {}
 require("lazy").setup(plugins, opts)
 
+-- -- Harpoon --
+-- -- Show menu
+-- set_keymap("n", "<leader>ss", ":lua require('harpoon.ui').toggle_quick_menu()<CR>", opts)
+-- 
+-- -- Add file
+-- set_keymap("n", "<leader>sa", ":lua require('harpoon.mark').add_file()<CR>", opts)
+-- 
+-- -- Move to files
+-- set_keymap("n", "<leader>sj", ":lua require('harpoon.ui').nav_file(1)<CR>", opts)
+-- set_keymap("n", "<leader>sk", ":lua require('harpoon.ui').nav_file(2)<CR>", opts)
+-- set_keymap("n", "<leader>sl", ":lua require('harpoon.ui').nav_file(3)<CR>", opts)
+
+local harpoon = require("harpoon")
+harpoon:setup()
+
+vim.keymap.set("n", "<leader>ss", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
+vim.keymap.set("n", "<leader>sa", function() harpoon:list():append() end)
+vim.keymap.set("n", "<leader>sj", function() harpoon:list():select(1) end)
+vim.keymap.set("n", "<leader>sk", function() harpoon:list():select(2) end)
+vim.keymap.set("n", "<leader>sl", function() harpoon:list():select(3) end)
+vim.keymap.set("n", "<leader>sl;", function() harpoon:list():select(4) end)
+
+-- Toggle previous & next buffers stored within Harpoon list
+-- vim.keymap.set("n", "<C-S-P>", function() harpoon:list():prev() end)
+-- vim.keymap.set("n", "<C-S-N>", function() harpoon:list():next() end)
