@@ -18,14 +18,13 @@ vim.api.nvim_set_keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 -- Open netrw
 vim.api.nvim_set_keymap("n", "<leader>nt", ":Ex<CR>", opts)
 
--- Remap ; to :
-vim.api.nvim_set_keymap("n", ";", ":", opts)
-
 -- Some expected behaviours
 vim.api.nvim_set_keymap("n", "Y", "yg$", opts) -- Y yanks current to end
 vim.api.nvim_set_keymap("n", "n", "nzzzv", opts) -- n centers the cursor
 vim.api.nvim_set_keymap("n", "N", "Nzzzv", opts) -- N centers the cursor
 vim.api.nvim_set_keymap("n", "J", "mzJ`z", opts)
+vim.api.nvim_set_keymap("n", "<C-d>", "<C-d>zz", opts)
+vim.api.nvim_set_keymap("n", "<C-u>", "<C-u>zz", opts)
 
 -- Insert --
 -- Exit with jk

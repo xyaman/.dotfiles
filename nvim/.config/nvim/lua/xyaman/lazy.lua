@@ -19,14 +19,51 @@ local plugins = {
   { 'hrsh7th/cmp-nvim-lsp' },
   { 'hrsh7th/nvim-cmp' },
   { 'L3MON4D3/LuaSnip' },
-  { 'nvim-telescope/telescope.nvim',    tag = '0.1.6',       dependencies = { 'nvim-lua/plenary.nvim' } },
+  { 'nvim-telescope/telescope.nvim',    tag = '0.1.6',                        dependencies = { 'nvim-lua/plenary.nvim' } },
   { "nvim-treesitter/nvim-treesitter",  build = ":TSUpdate" },
   -- { "ellisonleao/gruvbox.nvim",         priority = 1000,    config = true,                             opts = ... },
-  { "catppuccin/nvim",                  name = "catppuccin", priority = 1000 },
-  { "ThePrimeagen/harpoon",             branch = "harpoon2", dependencies = { "nvim-lua/plenary.nvim" } },
+  { "catppuccin/nvim",                  name = "catppuccin",                  priority = 1000 },
+  { "ThePrimeagen/harpoon",             branch = "harpoon2",                  dependencies = { "nvim-lua/plenary.nvim" } },
   { "github/copilot.vim" },
   { "lewis6991/gitsigns.nvim" },
- -- {"ray-x/go.nvim", dependencies = { "ray-x/guihua.lua"}, config = function() require("go").setup() end, event = {"CmdlineEnter"}, ft = {"go", "gomod"}, build=':lua require("go.install").update_all_sync()'},
+  { "ray-x/go.nvim",                    dependencies = { "ray-x/guihua.lua" }, config = function() require("go").setup() end, event = { "CmdlineEnter" }, ft = { "go", "gomod" }, build = ':lua require("go.install").update_all_sync()' },
+  {
+    "folke/trouble.nvim",
+    opts = {}, -- for default options, refer to the configuration section for custom setup.
+    cmd = "Trouble",
+    keys = {
+      {
+        "<leader>xx",
+        "<cmd>Trouble diagnostics toggle<cr>",
+        desc = "Diagnostics (Trouble)",
+      },
+      {
+        "<leader>xX",
+        "<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
+        desc = "Buffer Diagnostics (Trouble)",
+      },
+      {
+        "<leader>cs",
+        "<cmd>Trouble symbols toggle focus=false<cr>",
+        desc = "Symbols (Trouble)",
+      },
+      {
+        "<leader>cl",
+        "<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
+        desc = "LSP Definitions / references / ... (Trouble)",
+      },
+      {
+        "<leader>xL",
+        "<cmd>Trouble loclist toggle<cr>",
+        desc = "Location List (Trouble)",
+      },
+      {
+        "<leader>xQ",
+        "<cmd>Trouble qflist toggle<cr>",
+        desc = "Quickfix List (Trouble)",
+      },
+    },
+  }
 }
 
 local opts = {}
@@ -35,10 +72,10 @@ require("lazy").setup(plugins, opts)
 -- -- Harpoon --
 -- -- Show menu
 -- set_keymap("n", "<leader>ss", ":lua require('harpoon.ui').toggle_quick_menu()<CR>", opts)
--- 
+--
 -- -- Add file
 -- set_keymap("n", "<leader>sa", ":lua require('harpoon.mark').add_file()<CR>", opts)
--- 
+--
 -- -- Move to files
 -- set_keymap("n", "<leader>sj", ":lua require('harpoon.ui').nav_file(1)<CR>", opts)
 -- set_keymap("n", "<leader>sk", ":lua require('harpoon.ui').nav_file(2)<CR>", opts)
