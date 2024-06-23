@@ -1,7 +1,7 @@
 icons_format = "{icon}"
 
 [theme]
-theme = "gruvbox-dark"
+theme = "nord-dark"
 
 [icons]
 icons = "awesome4"
