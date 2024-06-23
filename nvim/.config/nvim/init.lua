@@ -1,13 +1,11 @@
-require "user.options"
+require "xyaman.options"
 require "xyaman.keymaps"
-require "xyaman.lazy"
-require "xyaman.lsp"
+require "xyaman.lazy_init"
 require "xyaman.colorscheme"
 
+-- -- Plugins
 require "xyaman.telescope"
 require "xyaman.treesitter"
-
--- -- Plugins
 -- require "user.autopairs"
 -- require "user.comment"
 -- require "user.gitsigns"
