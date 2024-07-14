@@ -2,12 +2,14 @@ local opts = { noremap = true, silent = true }
 
 vim.g.mapleader = " "
 
+vim.keymap.set("x", "<leader>p", [["_dP]])
+
 -- Normal --
 -- Better window window navigation
--- vim.api.nvim_set_keymap("n", "<C-h>", "<C-w>h", opts)
--- vim.api.nvim_set_keymap("n", "<C-j>", "<C-w>j", opts)
--- vim.api.nvim_set_keymap("n", "<C-k>", "<C-w>k", opts)
--- vim.api.nvim_set_keymap("n", "<C-l>", "<C-w>l", opts)
+vim.api.nvim_set_keymap("n", "<C-h>", "<C-w>h", opts)
+vim.api.nvim_set_keymap("n", "<C-j>", "<C-w>j", opts)
+vim.api.nvim_set_keymap("n", "<C-k>", "<C-w>k", opts)
+vim.api.nvim_set_keymap("n", "<C-l>", "<C-w>l", opts)
 
 -- Resize with arrows
 vim.api.nvim_set_keymap("n", "<C-Up>", ":resize +2<CR>", opts)
