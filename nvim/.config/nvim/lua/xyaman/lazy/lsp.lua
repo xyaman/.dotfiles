@@ -16,6 +16,29 @@ return {
     lsp_zero.on_attach(function(client, bufnr)
       lsp_zero.default_keymaps({ buffer = bufnr })
       lsp_zero.buffer_autoformat()
+
+      --- toggle inlay hints
+      vim.g.inlay_hints_visible = false
+      local function toggle_inlay_hints()
+        if vim.g.inlay_hints_visible then
+          vim.g.inlay_hints_visible = false
+          vim.lsp.inlay_hint(bufnr, false)
+        else
+          if client.server_capabilities.inlayHintProvider then
+            vim.g.inlay_hints_visible = true
+            vim.lsp.inlay_hint(bufnr, true)
+          else
+            print("no inlay hints available")
+          end
+        end
+      end
+
+      vim.keymap.set(
+        "n",
+        "<leader>ih",
+        toggle_inlay_hints,
+        { noremap = true, silent = true }
+      )
     end)
 
     require('mason').setup({})
@@ -52,7 +75,43 @@ return {
               Lua = {}
             }
           })
-        end
+        end,
+
+        -- vue
+        volar = function()
+          require('lspconfig').volar.setup({
+            root_dir = require("lspconfig").util.root_pattern(
+              "vue.config.js",
+              "vue.config.ts",
+              "nuxt.config.js",
+              "nuxt.config.ts"
+            ),
+            init_options = {
+              vue = {
+                hybridMode = true,
+              },
+            },
+          })
+        end,
+
+        tsserver = function()
+          local mason_packages = vim.fn.stdpath("data") .. "/mason/packages"
+          local volar_path = mason_packages .. "/vue-language-server/node_modules/@vue/language-server"
+
+          require('lspconfig').tsserver.setup({
+            -- use typescript with vue
+            filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
+            init_options = {
+              plugins = {
+                {
+                  name = "@vue/typescript-plugin",
+                  location = volar_path,
+                  languages = { "vue" },
+                },
+              },
+            },
+          })
+        end,
       },
     })
 

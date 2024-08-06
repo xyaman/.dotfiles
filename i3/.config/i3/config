@@ -12,7 +12,6 @@ exec --no-startup-id dex --autostart --environment i3
 # screen before suspend. Use loginctl lock-session to lock your screen.
 # exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
-exec --no-startup-id setxkbmap es &
 exec --no-startup-id nm-applet
 # exec --no-startup-id volumeicon
 exec --no-startup-id nitrogen --restore
@@ -22,8 +21,8 @@ exec fcitx5
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +3% && $refresh_i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -3% && $refresh_i3status
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
@@ -33,8 +32,20 @@ bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
 
 ## Clipboard Screenshots
 bindsym Ctrl+Print exec --no-startup-id maim | xclip -selection clipboard -t image/png
-bindsym Ctrl+$mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
-bindsym Ctrl+Shift+Print exec --no-startup-id maim --select | xclip -selection clipboard -t image/png
+## bindsym Ctrl+$mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
+## bindsym Ctrl+Shift+Print exec --no-startup-id maim --select | xclip -selection clipboard -t image/png
+
+## VNS mining keymaps
+
+# Record audio
+bindsym $mod+F7 exec --no-startup-id ~/vns/ames -r 
+
+# Screenshot
+bindsym $mod+F8 exec --no-startup-id ~/vns/ames -s
+
+# Alacritty toggle background
+bindsym $mod+Shift+a exec --no-startup-id ~/scripts/alacritty_toggle_opacity
+
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -91,7 +102,7 @@ set $ws2 "2:dev"
 set $ws3 "3:scl"
 set $ws4 "4"
 set $ws5 "5"
-set $ws6 "6"
+set $ws6 "6:srs"
 set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
@@ -187,9 +198,19 @@ client.urgent           #cc241d #cc241d #ffffff #cc241d #cc241d
 default_border pixel 1
 for_window [class=".*"] border pixel 0
 
+exec --no-startup-id brave-browser
+exec --no-startup-id discord
+exec --no-startup-id anki
+
 # Rules
 assign [class="brave-browser"] $ws1
-assign [class="firefox"] $ws1
-assign [class="zoom"] $ws5
 assign [class="discord"] $ws3
-assign [class="thunar"] 9
+assign [class="Anki"] $ws6
+for_window [class="Anki"] floating enable
+
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="bubble"] floating enable
+for_window [window_role="task_dialog"] floating enable
+for_window [window_role="Preferences"] floating enable
+for_window [window_type="dialog"] floating enable
+for_window [window_type="menu"] floating enable
