@@ -8,8 +8,8 @@ icons = "awesome4"
 
 [[block]]
 block = "cpu"
-info_cpu = 20
-warning_cpu = 50
+info_cpu = 50
+warning_cpu = 70
 critical_cpu = 90
 
 [[block]]

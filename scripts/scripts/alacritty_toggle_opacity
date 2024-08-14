@@ -8,10 +8,14 @@
 opacity=$(awk '$1 == "opacity" {print $3; exit}' \
     ~/.config/alacritty/alacritty.toml)
 
+## Define variables
+on=0.8
+off=1
+
 ## Assign toggle opacity value
 case $opacity in
-  1)
-    toggle_opacity=0.9
+  $off)
+    toggle_opacity=$on
     ;;
   *)
     toggle_opacity=1

@@ -16,3 +16,6 @@ require("lazy").setup({
   spec = "xyaman/lazy",
   change_detection = { notify = false },
 })
+
+require('gitsigns').setup()
+require("oil").setup()
