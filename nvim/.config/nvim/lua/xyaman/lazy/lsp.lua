@@ -6,6 +6,7 @@ return {
     { 'williamboman/mason-lspconfig.nvim' },
     { 'VonHeikemen/lsp-zero.nvim',        branch = 'v3.x' },
     { 'hrsh7th/cmp-nvim-lsp' },
+    { 'hrsh7th/cmp-buffer' },
     { 'hrsh7th/nvim-cmp' },
     { 'L3MON4D3/LuaSnip' },
   },
@@ -94,11 +95,11 @@ return {
           })
         end,
 
-        tsserver = function()
+        ts_ls = function()
           local mason_packages = vim.fn.stdpath("data") .. "/mason/packages"
           local volar_path = mason_packages .. "/vue-language-server/node_modules/@vue/language-server"
 
-          require('lspconfig').tsserver.setup({
+          require('lspconfig').ts_ls.setup({
             -- use typescript with vue
             filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
             init_options = {
@@ -119,6 +120,10 @@ return {
     local cmp_action = require('lsp-zero').cmp_action()
 
     cmp.setup({
+      sources = {
+        { name = "nvim_lsp" },
+        { name = "buffer" },
+      },
       mapping = cmp.mapping.preset.insert({
         -- `Enter` key to confirm completion
         ['<CR>'] = cmp.mapping.confirm({ select = false }),

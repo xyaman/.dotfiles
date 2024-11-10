@@ -1,69 +1,127 @@
-/*
-__        __          _
-\ \      / /_ _ _   _| |__   __ _ _ __
- \ \ /\ / / _` | | | | '_ \ / _` | '__|
-  \ V  V / (_| | |_| | |_) | (_| | |
-   \_/\_/ \__,_|\__, |_.__/ \__,_|_|
-                |___/
-*/
+@import "mocha.css";
 
 * {
-  transition-property: none;
-  animation: none;
-  font-size: 11.5px;
-  font-family: monospace;
-  padding: 2px;
-  border-radius: 0px;
+  /*font-family: "MesloLGS Nerd Font Mono Bold"; */
+  font-size: 12px;
+  min-height: 0;
+  font-weight: bold;
 }
 
 window#waybar {
-  background: #2c2d30;
-  /* border: solid #b1b3b9 2px; */
+  background: transparent;
+  background-color: @crust;
+  color: @overlay0;
+  transition-property: background-color;
+  transition-duration: 0.1s;
+  border-bottom: 0px solid @overlay1;
 }
 
-#custom-ewwmenu {
-  font-size: 19px;
-  margin-right: -4px;
+#window {
+  margin: 8px;
+  padding-left: 8;
+  padding-right: 8;
 }
 
-#workspaces,
-#tray {
-  padding: 0px;
+button {
+  box-shadow: inset 0 -3px transparent;
+  border: none;
+  border-radius: 0;
+}
+
+button:hover {
+  background: inherit;
+  color: @mauve;
+  border-top: 2px solid @mauve;
 }
 
 #workspaces button {
-  padding: 0px;
-  color: #b1b3b9;
-  margin-right: 2px;
-  padding: 0px 8px;
-  border: 0px;
-}
-
-#workspaces button.persistent {
-  color: #61636b;
+  padding: 0 4px;
 }
 
 #workspaces button.focused {
-  background: #b1b3b9;
-  border-radius: 2px;
-  color: #2c2d30;
+  background-color: rgba(0, 0, 0, 0.3);
+  color: @rosewater;
+  border-top: 1px solid @rosewater;
 }
 
-#workspaces button:hover {
-  background: #35373b;
-  color: #b1b3b9;
+#workspaces button.active {
+  background-color: rgba(0, 0, 0, 0.3);
+  color: @mauve;
+  border-top: 1px solid @mauve;
 }
 
-#clock {
-  color: #b1b3b9;
-  margin-right: 4px;
+#workspaces button.urgent {
+  background-color: #eb4d4b;
 }
 
 #pulseaudio,
-#memory,
-#cpu,
+#clock,
 #battery,
-#disk {
-  color: #b1b3b9;
-  margin-right: 8px;
+#cpu,
+#memory,
+#disk,
+#temperature,
+#backlight,
+#wireplumber,
+#tray,
+#network,
+#mode,
+#scratchpad {
+  margin-top: 2px;
+  margin-bottom: 2px;
+  margin-left: 4px;
+  margin-right: 4px;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#clock {
+  color: @maroon;
+  border-bottom: 2px solid @maroon;
+}
+
+#clock.date {
+  color: @mauve;
+  border-bottom: 2px solid @mauve;
+}
+
+#pulseaudio {
+  color: @blue;
+  border-bottom: 2px solid @blue;
+}
+
+#network {
+  color: @yellow;
+  border-bottom: 2px solid @yellow;
+}
+
+#idle_inhibitor {
+  margin-right: 12px;
+  color: #7cb342;
+}
+
+#idle_inhibitor.activated {
+  color: @red;
+}
+
+#battery {
+  color: @green;
+  border-bottom: 2px solid @green;
+}
+
+/* If workspaces is the leftmost module, omit left margin */
+.modules-left>widget:first-child>#workspaces {
+  margin-left: 0;
+}
+
+/* If workspaces is the rightmost module, omit right margin */
+.modules-right>widget:last-child>#workspaces {
+  margin-right: 0;
+}
+
+#custom-vpn {
+  color: @lavender;
+  border-radius: 15px;
+  padding-left: 6px;
+  padding-right: 6px;
 }

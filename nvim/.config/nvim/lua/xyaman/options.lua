@@ -1,11 +1,12 @@
 vim.opt.clipboard = "unnamedplus" -- https://vim.fandom.com/wiki/Accessing_the_system_clipboard
 vim.opt.number = true             -- shows line number
 vim.opt.relativenumber = true     -- shows relative line numbers
-vim.opt.cursorline = true        -- highlights the current line
+vim.opt.cursorline = true         -- highlights the current line
 vim.opt.expandtab = true          -- Use spaces instead of tabs
 vim.opt.tabstop = 2               -- number of spaces for tab
-vim.opt.shiftwidth = 2            -- number of spaces for indentation 
-vim.opt.ignorecase = false        -- ignore search in search patterns
+vim.opt.shiftwidth = 2            -- number of spaces for indentation
+vim.opt.ignorecase = true         -- ignore search in search patterns
+vim.opt.smartcase = true          -- automatically switch to a case-sensitive search if there are any capital letters
 vim.opt.swapfile = false          -- creates a swapfile
 vim.opt.splitbelow = true         -- force all horizontal splits go below of current window
 vim.opt.splitright = true         -- force all vertical splits go to the right of current window
