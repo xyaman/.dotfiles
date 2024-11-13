@@ -4,7 +4,7 @@ return {
   dependencies = {
     { 'williamboman/mason.nvim' },
     { 'williamboman/mason-lspconfig.nvim' },
-    { 'VonHeikemen/lsp-zero.nvim',        branch = 'v3.x' },
+    { 'VonHeikemen/lsp-zero.nvim',        branch = 'v4.x' },
     { 'hrsh7th/cmp-nvim-lsp' },
     { 'hrsh7th/cmp-buffer' },
     { 'hrsh7th/nvim-cmp' },
@@ -14,24 +14,14 @@ return {
   config = function()
     local lsp_zero = require('lsp-zero')
 
-    lsp_zero.on_attach(function(client, bufnr)
+    local lsp_attach = function(client, bufnr)
       lsp_zero.default_keymaps({ buffer = bufnr })
       lsp_zero.buffer_autoformat()
 
       --- toggle inlay hints
-      vim.g.inlay_hints_visible = false
       local function toggle_inlay_hints()
-        if vim.g.inlay_hints_visible then
-          vim.g.inlay_hints_visible = false
-          vim.lsp.inlay_hint(bufnr, false)
-        else
-          if client.server_capabilities.inlayHintProvider then
-            vim.g.inlay_hints_visible = true
-            vim.lsp.inlay_hint(bufnr, true)
-          else
-            print("no inlay hints available")
-          end
-        end
+        vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+        print("inlay_hint: ", vim.lsp.inlay_hint.is_enabled())
       end
 
       vim.keymap.set(
@@ -40,7 +30,45 @@ return {
         toggle_inlay_hints,
         { noremap = true, silent = true }
       )
-    end)
+    end
+
+    lsp_zero.extend_lspconfig({
+      capabilities = require('cmp_nvim_lsp').default_capabilities(),
+      lsp_attach = lsp_attach,
+      float_border = 'rounded',
+      sign_text = true,
+    })
+
+    local cmp = require('cmp')
+    local cmp_action = require('lsp-zero').cmp_action()
+
+    cmp.setup({
+      sources = {
+        { name = "nvim_lsp" },
+        { name = "buffer" },
+      },
+      snippet = {
+        expand = function(args)
+          require('luasnip').lsp_expand(args.body)
+        end,
+      },
+      mapping = cmp.mapping.preset.insert({}),
+      -- mapping = cmp.mapping.preset.insert({
+      --   -- `Enter` key to confirm completion
+      --   ['<CR>'] = cmp.mapping.confirm({ select = false }),
+
+      --   -- Ctrl+Space to trigger completion menu
+      --   ['<C-Space>'] = cmp.mapping.complete(),
+
+      --   -- Navigate between snippet placeholder
+      --   ['<C-f>'] = cmp_action.luasnip_jump_forward(),
+      --   ['<C-b>'] = cmp_action.luasnip_jump_backward(),
+
+      --   -- Scroll up and down in the completion documentation
+      --   ['<C-u>'] = cmp.mapping.scroll_docs(-4),
+      --   ['<C-d>'] = cmp.mapping.scroll_docs(4),
+      -- })
+    })
 
     require('mason').setup({})
     require('mason-lspconfig').setup({
@@ -114,31 +142,6 @@ return {
           })
         end,
       },
-    })
-
-    local cmp = require('cmp')
-    local cmp_action = require('lsp-zero').cmp_action()
-
-    cmp.setup({
-      sources = {
-        { name = "nvim_lsp" },
-        { name = "buffer" },
-      },
-      mapping = cmp.mapping.preset.insert({
-        -- `Enter` key to confirm completion
-        ['<CR>'] = cmp.mapping.confirm({ select = false }),
-
-        -- Ctrl+Space to trigger completion menu
-        ['<C-Space>'] = cmp.mapping.complete(),
-
-        -- Navigate between snippet placeholder
-        ['<C-f>'] = cmp_action.luasnip_jump_forward(),
-        ['<C-b>'] = cmp_action.luasnip_jump_backward(),
-
-        -- Scroll up and down in the completion documentation
-        ['<C-u>'] = cmp.mapping.scroll_docs(-4),
-        ['<C-d>'] = cmp.mapping.scroll_docs(4),
-      })
     })
   end
 }
