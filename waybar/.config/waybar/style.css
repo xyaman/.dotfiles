@@ -13,7 +13,6 @@ window#waybar {
   color: @overlay0;
   transition-property: background-color;
   transition-duration: 0.1s;
-  border-bottom: 0px solid @overlay1;
 }
 
 #window {
@@ -61,11 +60,10 @@ button:hover {
 #memory,
 #disk,
 #temperature,
-#backlight,
 #wireplumber,
 #tray,
-#network,
 #mode,
+#custom-pacman,
 #scratchpad {
   margin-top: 2px;
   margin-bottom: 2px;
@@ -73,40 +71,17 @@ button:hover {
   margin-right: 4px;
   padding-left: 4px;
   padding-right: 4px;
+  color: #B0B0B0;
 }
 
-#clock {
-  color: @maroon;
-  border-bottom: 2px solid @maroon;
-}
-
-#clock.date {
-  color: @mauve;
-  border-bottom: 2px solid @mauve;
-}
-
-#pulseaudio {
-  color: @blue;
-  border-bottom: 2px solid @blue;
-}
-
-#network {
-  color: @yellow;
-  border-bottom: 2px solid @yellow;
-}
-
-#idle_inhibitor {
-  margin-right: 12px;
-  color: #7cb342;
-}
-
-#idle_inhibitor.activated {
-  color: @red;
-}
-
-#battery {
-  color: @green;
-  border-bottom: 2px solid @green;
+#backlight {
+  margin-top: 6px;
+  margin-bottom: 2px;
+  margin-left: 4px;
+  margin-right: 4px;
+  padding-left: 4px;
+  padding-right: 4px;
+  color: #B0B0B0;
 }
 
 /* If workspaces is the leftmost module, omit left margin */
@@ -117,11 +92,4 @@ button:hover {
 /* If workspaces is the rightmost module, omit right margin */
 .modules-right>widget:last-child>#workspaces {
   margin-right: 0;
-}
-
-#custom-vpn {
-  color: @lavender;
-  border-radius: 15px;
-  padding-left: 6px;
-  padding-right: 6px;
 }
