@@ -9,6 +9,9 @@ return {
     { 'hrsh7th/cmp-buffer' },
     { 'hrsh7th/nvim-cmp' },
     { 'L3MON4D3/LuaSnip' },
+    { 'saadparwaiz1/cmp_luasnip' },
+    { 'rafamadriz/friendly-snippets' },
+    { "onsails/lspkind.nvim" },
   },
 
   config = function()
@@ -40,22 +43,66 @@ return {
     })
 
     local cmp = require('cmp')
-    local cmp_action = require('lsp-zero').cmp_action()
+    -- local cmp_action = require('lsp-zero').cmp_action()
+
+    -- this is the function that loads the extra snippets
+    -- from rafamadriz/friendly-snippets
+    require('luasnip.loaders.from_vscode').lazy_load()
 
     cmp.setup({
       sources = {
         { name = "nvim_lsp" },
-        { name = "buffer" },
+        { name = 'luasnip', keyword_length = 2 },
+        { name = 'buffer',  keyword_length = 3 },
       },
       snippet = {
         expand = function(args)
           require('luasnip').lsp_expand(args.body)
         end,
       },
-      mapping = cmp.mapping.preset.insert({}),
+      window = {
+        completion = cmp.config.window.bordered(),
+        documentation = cmp.config.window.bordered(),
+      },
+
+      formatting = {
+        format = require('lspkind').cmp_format({
+          mode = 'symbol_text',  -- show only symbol annotations
+          maxwidth = 50,         -- prevent the popup from showing more than provided characters
+          ellipsis_char = '...', -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead
+          show_labelDetails = true,
+        })
+      },
+      -- Preselect first item
+      preselect = "item",
+      completion = {
+        completeopt = "menu,menuone,noinsert"
+      },
+      mapping = cmp.mapping.preset.insert({
+        ['<CR>'] = cmp.mapping.confirm({ select = false }),
+
+        -- jump to the next snippet placeholder
+        ['<C-f>'] = cmp.mapping(function(fallback)
+          local luasnip = require('luasnip')
+          if luasnip.locally_jumpable(1) then
+            luasnip.jump(1)
+          else
+            fallback()
+          end
+        end, { 'i', 's' }),
+
+        -- jump to the previous snippet placeholder
+        ['<C-b>'] = cmp.mapping(function(fallback)
+          local luasnip = require('luasnip')
+          if luasnip.locally_jumpable(-1) then
+            luasnip.jump(-1)
+          else
+            fallback()
+          end
+        end, { 'i', 's' }),
+      }),
       -- mapping = cmp.mapping.preset.insert({
       --   -- `Enter` key to confirm completion
-      --   ['<CR>'] = cmp.mapping.confirm({ select = false }),
 
       --   -- Ctrl+Space to trigger completion menu
       --   ['<C-Space>'] = cmp.mapping.complete(),
@@ -68,6 +115,24 @@ return {
       --   ['<C-u>'] = cmp.mapping.scroll_docs(-4),
       --   ['<C-d>'] = cmp.mapping.scroll_docs(4),
       -- })
+    })
+
+    vim.diagnostic.config({
+      signs = {
+        text = {
+          [vim.diagnostic.severity.ERROR] = '✘',
+          [vim.diagnostic.severity.WARN] = '▲',
+          [vim.diagnostic.severity.HINT] = '⚑',
+          [vim.diagnostic.severity.INFO] = '»',
+        },
+      },
+      float = {
+        focusable = false,
+        style = "minimal",
+        border = "rounded",
+        header = "",
+        prefix = "",
+      },
     })
 
     require('mason').setup({})
@@ -136,6 +201,30 @@ return {
                   name = "@vue/typescript-plugin",
                   location = volar_path,
                   languages = { "vue" },
+                },
+              },
+            },
+            settings = {
+              javascript = {
+                inlayHints = {
+                  includeInlayEnumMemberValueHints = true,
+                  includeInlayFunctionLikeReturnTypeHints = true,
+                  includeInlayFunctionParameterTypeHints = true,
+                  includeInlayParameterNameHints = "all",
+                  includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+                  includeInlayPropertyDeclarationTypeHints = true,
+                  includeInlayVariableTypeHints = false,
+                },
+              },
+              typescript = {
+                inlayHints = {
+                  includeInlayEnumMemberValueHints = true,
+                  includeInlayFunctionLikeReturnTypeHints = true,
+                  includeInlayFunctionParameterTypeHints = true,
+                  includeInlayParameterNameHints = "all",
+                  includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+                  includeInlayPropertyDeclarationTypeHints = true,
+                  includeInlayVariableTypeHints = false,
                 },
               },
             },

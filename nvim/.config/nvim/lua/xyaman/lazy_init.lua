@@ -18,6 +18,3 @@ require("lazy").setup({
 })
 
 require('gitsigns').setup()
-require("oil").setup({
-  -- default_file_explorer = false,
-})
