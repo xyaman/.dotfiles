@@ -1,8 +1,11 @@
 [window]
-opacity = 0.8
+opacity = 1
+
+[colors.primary]
+background = "#18191a"
+foreground = "#cdcdcd"
 
 [keyboard]
 bindings = [
-  { key = "PageUp", mods = "Shift", action = "ScrollPageUp"  },
-  { key = "PageDown", mods = "Shift", action = "ScrollPageDown"  },
+    { key = "d", mods = "Control", action = "None" }
 ]
