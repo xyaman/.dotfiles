@@ -7,5 +7,5 @@ foreground = "#cdcdcd"
 
 [keyboard]
 bindings = [
-    { key = "d", mods = "Control", action = "None" }
+    # { key = "d", mods = "Control", action = "None" }
 ]
