@@ -17,7 +17,11 @@ exec --no-startup-id nm-applet
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id picom -b
 exec --no-startup-id blueberry-tray
-exec fcitx5
+
+exec --no-startup-id fcitx5
+exec --no-startup-id brave
+exec --no-startup-id vesktop
+exec --no-startup-id anki
 
 
 # Use pactl to adjust volume in PulseAudio.
@@ -64,7 +68,6 @@ bindsym $mod+d exec --no-startup-id rofi -dpi 1 -modi drun -show drun \
 		-config ~/.config/rofi/rofidmenu.rasi
 
 
-
 # change focus
 bindsym $mod+j focus left
 bindsym $mod+k focus down
@@ -81,7 +84,7 @@ bindsym $mod+Shift+semicolon move right
 bindsym $mod+h split h
 
 # split in vertical orientation
-bindsym $mod+v split v
+# bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -177,8 +180,9 @@ bindsym $mod+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 bar {
-        status_command i3status-rs
-	      position top
+        status_command i3status --config ~/.config/i3/i3status.conf
+        font pango:monospace 8
+	    position top
         bindsym button4 nop
         bindsym button5 nop
         strip_workspace_numbers yes
@@ -206,13 +210,11 @@ client.urgent           #cc241d #cc241d #ffffff #cc241d #cc241d
 default_border pixel 1
 for_window [class=".*"] border pixel 0
 
-exec --no-startup-id brave
-exec --no-startup-id discord
-exec --no-startup-id anki
 
 # Rules
 assign [class="brave-browser"] $ws1
 assign [class="discord"] $ws3
+assign [class="vesktop"] $ws3
 assign [class="Anki"] $ws5
 for_window [class="Anki"] floating enable
 
