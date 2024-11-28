@@ -37,7 +37,8 @@ return {
           -- neovim get size of buffer
           local file_size = vim.fn.getfsize(vim.fn.bufname(bufnr))
           local file_lines = vim.api.nvim_buf_line_count(bufnr)
-          return file_size > 5000 or file_lines > 50000
+          print("file size:", file_size, "(bytes)")
+          return file_size > 50000 or file_lines > 50000
         end,
 
         -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
