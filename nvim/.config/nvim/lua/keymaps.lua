@@ -17,8 +17,9 @@ vim.keymap.set('n', '<leader>L', '<cmd>Lazy<cr>', { desc = 'Lazy' })
 -- paste the word in x mode, but doesn't override the yank content
 vim.keymap.set("x", "<leader>p", [["_dP]])
 
--- vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
--- vim.keymap.set("n", "<leader>Y", [["+Y]])
+-- next greatest remap ever : asbjornHaland
+vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
+vim.keymap.set("n", "<leader>Y", [["+Y]])
 
 -- Better window window navigation (tmux-navigator)
 -- vim.keymap.set("n", "<C-h>", "<C-w>h", opts)
