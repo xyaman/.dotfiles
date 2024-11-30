@@ -16,7 +16,10 @@ vim.opt.completeopt = { "menuone", "noselect" }
 vim.opt.colorcolumn = "80"
 vim.opt.hlsearch = false
 
-vim.opt.clipboard = "unnamedplus" -- https://vim.fandom.com/wiki/Accessing_the_system_clipboard
+-- vim.opt.clipboard = "unnamedplus" -- https://vim.fandom.com/wiki/Accessing_the_system_clipboard
+-- next greatest remap ever : asbjornHaland
+vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
+vim.keymap.set("n", "<leader>Y", [["+Y]])
 
 -- testing new option
 vim.opt.guicursor = ""
