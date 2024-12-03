@@ -1,46 +1,49 @@
 return {
-	{
-		"vague2k/vague.nvim",
-		config = function()
-			require("vague").setup({
-				transparent = true,
-			})
-		end,
-	},
-	{
-		"ellisonleao/gruvbox.nvim",
-		config = function()
-			require("gruvbox").setup({
-				transparent_mode = true,
-			})
-		end,
-	},
-	{
-		"rose-pine/neovim",
-		name = "rose-pine",
-		config = function()
-			require("rose-pine").setup({
-				disable_background = true,
-				styles = {
-					italic = false,
-				},
-			})
-		end,
-	},
-	{
-		"catppuccin/nvim",
-		name = "catppuccin",
-	},
-	{
-		"folke/tokyonight.nvim",
-		config = function()
-			require("tokyonight").setup({
-				transparent = true, -- Enable this to disable setting the background color
-				style = "night",
-				styles = {
-					functions = {},
-				},
-			})
-		end,
-	},
+    {
+        "vague2k/vague.nvim",
+        opts = {
+            transparent = true,
+        }
+    },
+    {
+        "ellisonleao/gruvbox.nvim",
+        opts = {
+            transparent_mode = true,
+        },
+    },
+    {
+        "rose-pine/neovim",
+        name = "rose-pine",
+        opts = {
+            disable_background = true,
+            extend_background_behind_borders = true,
+            dim_inactive_background = false,
+            styles = {
+                transparency = true,
+            },
+            highlight_groups = {
+                TelescopeBorder = { fg = "highlight_high", bg = "none" },
+                TelescopeNormal = { bg = "none" },
+                TelescopePromptNormal = { bg = "none" },
+                TelescopeResultsNormal = { fg = "subtle", bg = "none" },
+                TelescopeSelection = { fg = "text", bg = "none" },
+                TelescopeSelectionCaret = { fg = "rose", bg = "rose" },
+            },
+        },
+    },
+    {
+        "catppuccin/nvim",
+        name = "catppuccin",
+    },
+    {
+        "folke/tokyonight.nvim",
+        opts = {
+
+            transparent = true,
+            style = "night",
+            styles = {
+                functions = {},
+            },
+        }
+    },
 }
