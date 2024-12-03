@@ -12,6 +12,7 @@ return {
         { "saadparwaiz1/cmp_luasnip" },
         { "rafamadriz/friendly-snippets" },
         { "onsails/lspkind.nvim" },
+        { 'j-hui/fidget.nvim', opts = {} },
     },
 
     config = function()
