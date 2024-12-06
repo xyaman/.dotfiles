@@ -15,11 +15,6 @@ return {
         vim.keymap.set("n", "<leader>tt", builtin.find_files, { desc = "Telescope files" })
         vim.keymap.set("n", "<leader>tg", builtin.live_grep, { desc = "Telescope grep" })
 
-        vim.keymap.set("n", "<leader>tw", function()
-            local cword = vim.fn.expand("<cword>")
-            builtin.grep_string({ search = cword })
-        end, { desc = "Telescope <cword> grep" })
-
         vim.keymap.set("n", "<leader>th", builtin.help_tags, { desc = "Telescope help tags" })
         vim.keymap.set("n", "<leader>tc", builtin.colorscheme, { desc = "Telescope colorscheme" })
         vim.keymap.set("n", "<leader>tk", builtin.keymaps, { desc = "Telescope keymaps" })
