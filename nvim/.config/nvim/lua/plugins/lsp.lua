@@ -4,7 +4,6 @@ return {
     dependencies = {
         { "williamboman/mason.nvim" },
         { "williamboman/mason-lspconfig.nvim" },
-        -- { 'VonHeikemen/lsp-zero.nvim',        branch = 'v4.x' },
         { "hrsh7th/cmp-nvim-lsp" },
         { "hrsh7th/cmp-buffer" },
         { "hrsh7th/nvim-cmp" },
@@ -12,7 +11,7 @@ return {
         { "saadparwaiz1/cmp_luasnip" },
         { "rafamadriz/friendly-snippets" },
         { "onsails/lspkind.nvim" },
-        { 'j-hui/fidget.nvim', opts = {} },
+        { 'j-hui/fidget.nvim',  opts = { notification = { window = { winblend = 0 } } } },
     },
 
     config = function()
@@ -132,10 +131,14 @@ return {
             border = "rounded",
         })
 
-        require("mason").setup({})
+        require("mason").setup({ PATH = "append" })
         require("mason-lspconfig").setup({
             ensure_installed = { "lua_ls" },
             handlers = {
+                function(server_name)
+                    require("lspconfig")[server_name].setup {}
+                end,
+
                 -- lsp_zero.default_setup,
                 lua_ls = function()
                     require("lspconfig").lua_ls.setup({
@@ -255,7 +258,6 @@ return {
         })
 
         local lspconfig = require("lspconfig")
-        lspconfig.clangd.setup({})
         lspconfig.zls.setup({
             cmd = { 'zls' },
             root_dir = lspconfig.util.root_pattern(".git", "build.zig", "zls.json"),
