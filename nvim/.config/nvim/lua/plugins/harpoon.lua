@@ -25,10 +25,10 @@ return {
 
         -- yeet (check plugins folder)
         vim.keymap.set("n", "<leader>yc",
-            function() harpoon.ui:toggle_quick_menu(harpoon:list("yeet"), {title = "Harpoon Yeet"}) end)
+            function() harpoon.ui:toggle_quick_menu(harpoon:list("yeet"), {title = "Harpoon Yeet"}) end, { desc = "[harpoon] yeet cmds" })
         vim.keymap.set("n", "<leader>y1", function() harpoon:list("yeet"):select(1) end, { desc = "[harpoon] yeet 1" })
-        vim.keymap.set("n", "<leader>y2", function() harpoon:list("yeet"):select(2) end, { desc = "yeet 2" })
-        vim.keymap.set("n", "<leader>y3", function() harpoon:list("yeet"):select(3) end, { desc = "yeet 3" })
-        vim.keymap.set("n", "<leader>y4", function() harpoon:list("yeet"):select(4) end, { desc = "yeet 4" })
+        vim.keymap.set("n", "<leader>y2", function() harpoon:list("yeet"):select(2) end, { desc = "[harpoon] yeet 2" })
+        vim.keymap.set("n", "<leader>y3", function() harpoon:list("yeet"):select(3) end, { desc = "[harpoon] yeet 3" })
+        vim.keymap.set("n", "<leader>y4", function() harpoon:list("yeet"):select(4) end, { desc = "[harpoon] yeet 4" })
     end,
 }

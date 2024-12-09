@@ -18,7 +18,8 @@ vim.keymap.set('n', '<leader>L', '<cmd>Lazy<cr>', { desc = 'Lazy' })
 vim.keymap.set("x", "<leader>p", [["_dP]])
 
 -- next greatest remap ever : asbjornHaland
-vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
+-- vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
+vim.keymap.set("v", "<leader>y", [["+y]]) -- to avoid colision with yeet
 vim.keymap.set("n", "<leader>Y", [["+Y]])
 
 -- Better window window navigation (tmux-navigator)
@@ -36,6 +37,9 @@ vim.keymap.set("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 -- Open netrw
 -- vim.keymap.set("n", "<leader>nt", ":Ex<CR>", opts)
 vim.keymap.set("n", "<leader>nt", ":Oil<CR>", opts)
+
+-- Terminal
+vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
 
 -- Some expected behaviours
 vim.keymap.set("n", "Y", "yg$", opts)   -- Y yanks current to end
