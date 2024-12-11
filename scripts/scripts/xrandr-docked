@@ -1,0 +1,2 @@
+#!/bin/sh
+xrandr --fb 2560x1440 --output eDP-1 --off --output HDMI-1 --crtc 0 --gamma 1.0:1.0:1.0 --mode 2560x1440 --pos 0x0 --primary --rate 144.00 --reflect normal --rotate normal --set 'aspect ratio' Automatic --set audio auto --set 'Broadcast RGB' Automatic --set Colorspace Default --set 'max bpc' 12 --set non-desktop 0
