@@ -2,8 +2,10 @@
 opacity = 1
 
 [colors.primary]
-background = "#18191a"
-foreground = "#cdcdcd"
+# background = "#18191a"
+# foreground = "#cdcdcd
+background = '#181616'
+foreground = '#c5c9c5'
 
 [keyboard]
 bindings = [
