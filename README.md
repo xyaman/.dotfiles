@@ -14,6 +14,8 @@ stow [foldername]
 
 # X11 config:
 [lightdm xrandr](https://gist.github.com/ciarand/8592193)
+dunst scripts
+- https://gitlab.com/Nmoleo/i3-volume-brightness-indicator
 
 # Keyboard
 I use remaps with xmodmap
