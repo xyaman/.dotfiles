@@ -22,12 +22,6 @@ vim.keymap.set("x", "<leader>p", [["_dP]])
 vim.keymap.set("v", "<leader>y", [["+y]]) -- to avoid colision with yeet
 vim.keymap.set("n", "<leader>Y", [["+Y]])
 
--- Better window window navigation (tmux-navigator)
--- vim.keymap.set("n", "<C-h>", "<C-w>h", opts)
--- vim.keymap.set("n", "<C-j>", "<C-w>j", opts)
--- vim.keymap.set("n", "<C-k>", "<C-w>k", opts)
--- vim.keymap.set("n", "<C-l>", "<C-w>l", opts)
-
 -- Resize with arrows
 vim.keymap.set("n", "<C-Up>", ":resize +2<CR>", opts)
 vim.keymap.set("n", "<C-Down>", ":resize -2<CR>", opts)
@@ -66,6 +60,10 @@ vim.keymap.set("n", "<leader>ck", "<cmd>cnext<CR>zz", { desc = "Go to the next e
 
 vim.keymap.set("n", "<leader>gn", "<cmd>lprev<CR>zz", { desc = "Go to the prev element in the location list." })
 vim.keymap.set("n", "<leader>gb", "<cmd>lnext<CR>zz", { desc = "Go to the next element in the location list." })
+
+-- japanese develop (euc)
+vim.keymap.set("n", "<leader>euc", "<cmd>e ++enc=euc-jp<CR>");
+vim.keymap.set("n", "<leader><tab><tab>", "<cmd>set invlist<CR>");
 
 -- LSP
 vim.api.nvim_create_autocmd("LspAttach", {
