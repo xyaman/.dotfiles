@@ -178,6 +178,22 @@ return {
                     })
                 end,
 
+                phpactor = function()
+                    local lspconfig = require("lspconfig");
+                    lspconfig.phpactor.setup({
+                        root_dir = function(fname)
+                            local root = require('lspconfig/util').find_git_ancestor(fname)
+                            if root then
+                                return root
+                            else
+                                print("phpactor: no root found... Using vim.fn.getcwd()... Some functionality might not work.")
+                                 return vim.fn.getcwd()
+                            end
+
+                        end
+                    })
+                end,
+
                 -- zls = function()
                 -- 	local lspconfig = require("lspconfig")
                 -- 	lspconfig.zls.setup({

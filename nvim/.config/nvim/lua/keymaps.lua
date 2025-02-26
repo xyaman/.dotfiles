@@ -18,8 +18,7 @@ vim.keymap.set('n', '<leader>L', '<cmd>Lazy<cr>', { desc = 'Lazy' })
 vim.keymap.set("x", "<leader>p", [["_dP]])
 
 -- next greatest remap ever : asbjornHaland
--- vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
-vim.keymap.set("v", "<leader>y", [["+y]]) -- to avoid colision with yeet
+vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
 
 -- Resize with arrows
@@ -32,7 +31,7 @@ vim.keymap.set("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 -- vim.keymap.set("n", "<leader>nt", ":Ex<CR>", opts)
 vim.keymap.set("n", "<leader>nt", ":Oil<CR>", opts)
 
--- Terminal
+-- Terminal: use ESC to return to NORMAL mode
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
 
 -- Some expected behaviours
@@ -42,10 +41,6 @@ vim.keymap.set("n", "N", "Nzzzv", opts) -- N centers the cursor
 vim.keymap.set("n", "J", "mzJ`z", opts)
 vim.keymap.set("n", "<C-d>", "<C-d>zz", opts)
 vim.keymap.set("n", "<C-u>", "<C-u>zz", opts)
-
--- Insert --
--- Exit with jk
-vim.keymap.set("i", "jk", "<ESC>", opts)
 
 -- Visual --
 -- Stay in indent mode
@@ -60,6 +55,10 @@ vim.keymap.set("n", "<leader>ck", "<cmd>cnext<CR>zz", { desc = "Go to the next e
 
 vim.keymap.set("n", "<leader>gn", "<cmd>lprev<CR>zz", { desc = "Go to the prev element in the location list." })
 vim.keymap.set("n", "<leader>gb", "<cmd>lnext<CR>zz", { desc = "Go to the next element in the location list." })
+
+-- Misc
+-- Opens replace with the word under the cursor selected
+vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI]])
 
 -- japanese develop (euc)
 vim.keymap.set("n", "<leader>euc", "<cmd>e ++enc=euc-jp<CR>");
