@@ -12,6 +12,6 @@ return {
 			},
 		})
 
-		vim.keymap.set("n", "<leader>lf", require("conform").format)
+		vim.keymap.set("n", "<leader>cf", require("conform").format)
 	end,
 }

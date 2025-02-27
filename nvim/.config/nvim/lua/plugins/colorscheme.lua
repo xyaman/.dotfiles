@@ -1,16 +1,7 @@
 return {
-    {
-        "vague2k/vague.nvim",
-        opts = {
-            transparent = true,
-        }
-    },
-    {
-        "ellisonleao/gruvbox.nvim",
-        opts = {
-            transparent_mode = true,
-        },
-    },
+    {"vague2k/vague.nvim", opts = {transparent = true,}},
+    {"ellisonleao/gruvbox.nvim", opts = { transparent_mode = true, },},
+    {"armannikoyan/rusty", opts = { transparent_mode = true, },},
     {
         "rose-pine/neovim",
         name = "rose-pine",
@@ -31,10 +22,7 @@ return {
             },
         },
     },
-    {
-        "catppuccin/nvim",
-        name = "catppuccin",
-    },
+    {"catppuccin/nvim", name = "catppuccin",},
     {
         "folke/tokyonight.nvim",
         opts = {

@@ -19,9 +19,9 @@ require("commands")
 
 require("lazy").setup("plugins", {
     ui = { border = "rounded" },
-    install = { missing = false },
     change_detection = { notify = false },
 })
 
 -- vim.cmd("colorscheme vague")
-vim.cmd("colorscheme rose-pine")
+-- vim.cmd("colorscheme rose-pine")
+vim.cmd("colorscheme rusty")

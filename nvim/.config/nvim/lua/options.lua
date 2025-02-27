@@ -1,6 +1,7 @@
 vim.opt.number = true         -- shows line number
 vim.opt.relativenumber = true -- shows relative line numbers
 vim.opt.cursorline = true     -- highlights the current line
+vim.opt.smartindent = true
 vim.opt.expandtab = true      -- Use spaces instead of tabs
 vim.opt.tabstop = 4           -- number of spaces for tab
 vim.opt.shiftwidth = 4        -- number of spaces for indentation
