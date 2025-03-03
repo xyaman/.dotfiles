@@ -89,20 +89,6 @@ return {
 					end
 				end, { "i", "s" }),
 			}),
-			-- mapping = cmp.mapping.preset.insert({
-			--   -- `Enter` key to confirm completion
-
-			--   -- Ctrl+Space to trigger completion menu
-			--   ['<C-Space>'] = cmp.mapping.complete(),
-
-			--   -- Navigate between snippet placeholder
-			--   ['<C-f>'] = cmp_action.luasnip_jump_forward(),
-			--   ['<C-b>'] = cmp_action.luasnip_jump_backward(),
-
-			--   -- Scroll up and down in the completion documentation
-			--   ['<C-u>'] = cmp.mapping.scroll_docs(-4),
-			--   ['<C-d>'] = cmp.mapping.scroll_docs(4),
-			-- })
 		})
 
 		vim.diagnostic.config({
@@ -123,13 +109,25 @@ return {
 			},
 		})
 
-		vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-			border = "rounded",
-		})
+		local hover = vim.lsp.buf.hover
+		---@diagnostic disable-next-line: duplicate-set-field
+		vim.lsp.buf.hover = function()
+			return hover({
+				border = "rounded",
+				-- max_height = math.floor(vim.o.lines * 0.5),
+				-- max_width = math.floor(vim.o.columns * 0.4),
+			})
+		end
 
-		vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
-			border = "rounded",
-		})
+		local signature_help = vim.lsp.buf.signature_help
+		---@diagnostic disable-next-line: duplicate-set-field
+		vim.lsp.buf.signature_help = function()
+			return signature_help({
+				border = "rounded",
+				-- max_height = math.floor(vim.o.lines * 0.5),
+				-- max_width = math.floor(vim.o.columns * 0.4),
+			})
+		end
 
 		require("mason").setup({ PATH = "append" })
 		require("mason-lspconfig").setup({

@@ -50,8 +50,8 @@ vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
 -- Quickfix / Location lists
-vim.keymap.set("n", "<leader>cj", "<cmd>cprev<CR>zz", { desc = "Go to the prev element in the quickfix." })
-vim.keymap.set("n", "<leader>ck", "<cmd>cnext<CR>zz", { desc = "Go to the next element in the quickfix." })
+vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz", { desc = "Go to the prev element in the quickfix." })
+vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz", { desc = "Go to the next element in the quickfix." })
 
 vim.keymap.set("n", "<leader>gn", "<cmd>lprev<CR>zz", { desc = "Go to the prev element in the location list." })
 vim.keymap.set("n", "<leader>gb", "<cmd>lnext<CR>zz", { desc = "Go to the next element in the location list." })
@@ -60,8 +60,12 @@ vim.keymap.set("n", "<leader>gb", "<cmd>lnext<CR>zz", { desc = "Go to the next e
 -- Opens replace with the word under the cursor selected
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI]])
 
--- japanese develop (euc)
+-- Encodings
+vim.keymap.set("n", "<leader>enc", "<cmd>!chardet %<CR>");
 vim.keymap.set("n", "<leader>euc", "<cmd>e ++enc=euc-jp<CR>");
+vim.keymap.set("n", "<leader>sjis", "<cmd>e ++enc=sjis<CR>");
+
+-- See character code (tab, spaces, etc)
 vim.keymap.set("n", "<leader><tab><tab>", "<cmd>set invlist<CR>");
 
 -- LSP
