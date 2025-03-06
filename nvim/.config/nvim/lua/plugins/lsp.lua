@@ -25,10 +25,6 @@ return {
 		)
 
 		local cmp = require("cmp")
-		-- local cmp_action = require('lsp-zero').cmp_action()
-
-		-- this is the function that loads the extra snippets
-		-- from rafamadriz/friendly-snippets
 		require("luasnip.loaders.from_vscode").lazy_load()
 
 		cmp.setup({
@@ -143,9 +139,7 @@ return {
 						on_init = function(client)
 							if client.workspace_folders then
 								local path = client.workspace_folders[1].name
-								if
-									vim.uv.fs_stat(path .. "/.luarc.json") or vim.uv.fs_stat(path .. "/.luarc.jsonc")
-								then
+								if vim.uv.fs_stat(path .. "/.luarc.json") or vim.uv.fs_stat(path .. "/.luarc.jsonc") then
 									return
 								end
 							end
@@ -184,31 +178,12 @@ return {
 							if root then
 								return root
 							else
-								print(
-									"phpactor: no root found... Using vim.fn.getcwd()... Some functionality might not work."
-								)
+								print("phpactor: no root found... Using vim.fn.getcwd()... Some functionality might not work.")
 								return vim.fn.getcwd()
 							end
 						end,
 					})
 				end,
-
-				-- zls = function()
-				-- 	local lspconfig = require("lspconfig")
-				-- 	lspconfig.zls.setup({
-				-- 		root_dir = lspconfig.util.root_pattern(".git", "build.zig", "zls.json"),
-				-- 		settings = {
-				-- 			zls = {
-				-- 				enable_inlay_hints = true,
-				-- 				enable_snippets = true,
-				-- 				warn_style = true,
-				-- 			},
-				-- 		},
-				-- 	})
-				--
-				-- 	vim.g.zig_fmt_parse_errors = 0
-				-- 	vim.g.zig_fmt_autosave = 0
-				-- end,
 
 				-- vue
 				volar = function()
