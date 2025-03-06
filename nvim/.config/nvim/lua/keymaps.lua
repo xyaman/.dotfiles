@@ -18,7 +18,7 @@ vim.keymap.set('n', '<leader>L', '<cmd>Lazy<cr>', { desc = 'Lazy' })
 vim.keymap.set("x", "<leader>p", [["_dP]])
 
 -- next greatest remap ever : asbjornHaland
-vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
+vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
 
 -- Resize with arrows
@@ -68,25 +68,24 @@ vim.keymap.set("n", "<leader>sjis", "<cmd>e ++enc=sjis<CR>");
 -- See character code (tab, spaces, etc)
 vim.keymap.set("n", "<leader><tab><tab>", "<cmd>set invlist<CR>");
 
+-- Some keymaps are created unconditionally when Nvim starts:
+-- - "grn" is mapped in Normal mode to |vim.lsp.buf.rename()|
+-- - "gra" is mapped in Normal and Visual mode to |vim.lsp.buf.code_action()|
+-- - "grr" is mapped in Normal mode to |vim.lsp.buf.references()|
+-- - "gri" is mapped in Normal mode to |vim.lsp.buf.implementation()|
+-- - "gO" is mapped in Normal mode to |vim.lsp.buf.document_symbol()|
+-- - CTRL-S is mapped in Insert mode to |vim.lsp.buf.signature_help()|
+vim.keymap.del("n", "grn");
+vim.keymap.del("n", "gra");
+vim.keymap.del("n", "grr");
+vim.keymap.del("n", "gri");
+vim.keymap.del("n", "gO");
+
 -- LSP
 vim.api.nvim_create_autocmd("LspAttach", {
     desc = "LSP actions",
     callback = function(event)
         opts = { buffer = event.buf }
-
-        -- Some keymaps are created unconditionally when Nvim starts:
-        -- - "grn" is mapped in Normal mode to |vim.lsp.buf.rename()|
-        -- - "gra" is mapped in Normal and Visual mode to |vim.lsp.buf.code_action()|
-        -- - "grr" is mapped in Normal mode to |vim.lsp.buf.references()|
-        -- - "gri" is mapped in Normal mode to |vim.lsp.buf.implementation()|
-        -- - "gO" is mapped in Normal mode to |vim.lsp.buf.document_symbol()|
-        -- - CTRL-S is mapped in Insert mode to |vim.lsp.buf.signature_help()|
-
-        vim.keymap.del("n", "grn");
-        vim.keymap.del("n", "gra");
-        vim.keymap.del("n", "grr");
-        vim.keymap.del("n", "gri");
-        vim.keymap.del("n", "gO");
 
         vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
         vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
@@ -94,7 +93,10 @@ vim.api.nvim_create_autocmd("LspAttach", {
         vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
         vim.keymap.set("n", "go", vim.lsp.buf.type_definition, opts)
         vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
+
         vim.keymap.set("n", "gs", vim.lsp.buf.signature_help, opts)
+        vim.keymap.set("i", "<C-s>", vim.lsp.buf.signature_help, opts)
+
         vim.keymap.set("n", "<F2>", vim.lsp.buf.rename, opts)
         vim.keymap.set("n", "<F4>", vim.lsp.buf.code_action, opts)
 
