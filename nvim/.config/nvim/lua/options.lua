@@ -21,7 +21,7 @@ vim.opt.hlsearch = false
 
 -- testing new option
 vim.opt.guicursor = ""
-vim.cmd("set iskeyword+=_")
+-- vim.cmd("set iskeyword+=_")
 
 -- highlight on yank
 vim.api.nvim_create_autocmd('TextYankPost', {
