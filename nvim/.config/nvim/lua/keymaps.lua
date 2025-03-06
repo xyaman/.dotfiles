@@ -82,11 +82,11 @@ vim.api.nvim_create_autocmd("LspAttach", {
         -- - "gO" is mapped in Normal mode to |vim.lsp.buf.document_symbol()|
         -- - CTRL-S is mapped in Insert mode to |vim.lsp.buf.signature_help()|
 
-        vim.keymap.del("n", "grn", opts);
-        vim.keymap.del("n", "gra", opts);
-        vim.keymap.del("n", "grr", opts);
-        vim.keymap.del("n", "gri", opts);
-        vim.keymap.del("n", "gO", opts);
+        vim.keymap.del("n", "grn");
+        vim.keymap.del("n", "gra");
+        vim.keymap.del("n", "grr");
+        vim.keymap.del("n", "gri");
+        vim.keymap.del("n", "gO");
 
         vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
         vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
