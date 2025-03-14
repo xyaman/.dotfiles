@@ -60,6 +60,9 @@ vim.keymap.set("n", "<leader>gb", "<cmd>lnext<CR>zz", { desc = "Go to the next e
 -- Opens replace with the word under the cursor selected
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI]])
 
+-- print php pre
+vim.keymap.set("n", "<leader>pr", "oecho \"<pre>\";<CR>echo \"</pre>\";<Esc>Oprint_r(");
+
 -- Encodings
 vim.keymap.set("n", "<leader>enc", "<cmd>!chardet %<CR>");
 vim.keymap.set("n", "<leader>euc", "<cmd>e ++enc=euc-jp<CR>");
