@@ -50,8 +50,8 @@ vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
 -- Quickfix / Location lists
-vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz", { desc = "Go to the prev element in the quickfix." })
-vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz", { desc = "Go to the next element in the quickfix." })
+vim.keymap.set("n", "<C-k>", "<cmd>cprev<CR>zz", { desc = "Go to the prev element in the quickfix." })
+vim.keymap.set("n", "<C-j>", "<cmd>cnext<CR>zz", { desc = "Go to the next element in the quickfix." })
 
 vim.keymap.set("n", "<leader>gn", "<cmd>lprev<CR>zz", { desc = "Go to the prev element in the location list." })
 vim.keymap.set("n", "<leader>gb", "<cmd>lnext<CR>zz", { desc = "Go to the next element in the location list." })

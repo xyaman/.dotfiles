@@ -170,6 +170,23 @@ return {
 					})
 				end,
 
+				pylsp = function ()
+					require("lspconfig").pylsp.setup({
+						settings = {
+							pylsp = {
+								plugins = {
+									pycodestyle = { ignore = { "E501" }, maxLineLength = 120 },
+									flake8 = { ignore = { "E501" }, maxLineLength = 120 },
+									black = { line_length = 120 },
+									mccabe = { enabled = false },
+									pylint = { enabled = false },
+									autopep8 = { enabled = false },
+								},
+							},
+						},
+					})
+				end,
+
 				phpactor = function()
 					local lspconfig = require("lspconfig")
 					lspconfig.phpactor.setup({
