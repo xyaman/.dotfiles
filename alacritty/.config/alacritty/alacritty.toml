@@ -1,5 +1,6 @@
 [window]
 opacity = 1
+padding = { x = 15, y = 10 }
 
 [colors.primary]
 # background = "#18191a"
