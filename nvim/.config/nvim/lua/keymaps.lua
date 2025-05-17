@@ -107,6 +107,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
         vim.keymap.set("n", "<leader>df", vim.diagnostic.open_float)
 
         -- we use zz, so we need to use <cmd>
+        vim.keymap.set("n", "[[", "<cmd>lua vim.diagnostic.setqflist()<CR>")
         vim.keymap.set("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>zz")
         vim.keymap.set("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>zz")
     end,
