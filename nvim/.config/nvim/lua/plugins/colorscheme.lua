@@ -1,19 +1,4 @@
 return {
-    { "ellisonleao/gruvbox.nvim", opts = { transparent_mode = true, }, },
-    {
-        "ficcdaf/ashen.nvim",
-        lazy = false,
-        priority = 1000,
-        opts = {
-            transparent = true,
-            hl = {
-                force_override = {
-                    LineNr = { fg = "#555555", bg = "NONE" },
-                    CursorLineNr = { fg = "#c0c0c0", bg = "NONE", bold = true },
-                },
-            },
-        },
-    },
     {
         "rose-pine/neovim",
         name = "rose-pine",

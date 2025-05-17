@@ -16,22 +16,15 @@ require("functions")
 require("options")
 require("keymaps")
 require("commands")
+require("lsp")
 
 require("lazy").setup("plugins", {
     ui = { border = "rounded" },
     change_detection = { notify = false },
+    rocks = { enabled = false },
 })
 
--- vim.cmd("colorscheme ashen")
 vim.cmd("colorscheme rose-pine")
 
--- Only open Oil if no file or directory was passed
-vim.api.nvim_create_autocmd("VimEnter", {
-  callback = function()
-    if vim.fn.argc() == 0 then
-      vim.schedule(function()
-        vim.cmd("Oil")
-      end)
-    end
-  end,
-})
+-- Enable the new experimental command-line features.
+require('vim._extui').enable {}
