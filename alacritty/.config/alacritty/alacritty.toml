@@ -1,14 +1,16 @@
+general.import = [ "~/.config/alacritty/oh-lucy-evening.theme.toml"]
+
 [window]
 opacity = 1
 padding = { x = 15, y = 10 }
 
-[colors.primary]
-# background = "#18191a"
-# foreground = "#cdcdcd
-background = '#181616'
-foreground = '#c5c9c5'
+# [colors.primary]
+# background = '#181616'
+# foreground = '#c5c9c5'
+
 
 [keyboard]
 bindings = [
+    # example
     # { key = "d", mods = "Control", action = "None" }
 ]
