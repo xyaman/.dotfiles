@@ -28,6 +28,6 @@ return {
         { "<leader>th", function() Snacks.picker.help() end, desc = "Picker help" },
         { "<leader>tv", function() Snacks.picker.files({ cwd = vim.fn.stdpath("config") }) end, desc = "Find Config File" },
         { "<leader>tc", function() Snacks.picker.colorschemes({layout = "ivy"}) end, desc = "Colorschemes" },
-        { "<leader>lz", function() Snacks.lazygit() end, desc = "Lazygit" },
+        { "<leader>gg", function() Snacks.lazygit() end, desc = "Lazygit" },
     },
 }

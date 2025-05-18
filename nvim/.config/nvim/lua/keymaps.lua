@@ -55,6 +55,7 @@ vim.keymap.set("n", "<leader>gb", "<cmd>lnext<CR>zz", { desc = "Go to the next e
 -- Misc
 -- Opens replace with the word under the cursor selected
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI]])
+vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 -- print php pre
 -- TODO: use treesitter to print variable under cursor

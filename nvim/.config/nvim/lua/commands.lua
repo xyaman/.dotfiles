@@ -1,3 +1,8 @@
+vim.api.nvim_create_user_command("ToggleFormat", function()
+    vim.g.autoformat = not vim.g.autoformat
+    vim.notify(string.format('%s formatting...', vim.g.autoformat and 'Enabling' or 'Disabling'), vim.log.levels.INFO)
+end, { desc = "Toggle autoformat (conform.nvim)" })
+
 vim.api.nvim_create_user_command("ListTabs", function()
     local tabs = {}
     local current_tab = vim.api.nvim_tabpage_get_number(0)
