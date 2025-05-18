@@ -1,10 +1,11 @@
 return {
     "echasnovski/mini.clue",
     version = "*",
+    event = "VeryLazy",
 
-    config = function()
+    opts = function()
         local miniclue = require("mini.clue")
-        miniclue.setup({
+        return {
             triggers = {
                 -- Leader triggers
                 { mode = "n", keys = "<Leader>" },
@@ -61,7 +62,7 @@ return {
                 miniclue.gen_clues.registers(),
                 miniclue.gen_clues.windows(),
                 miniclue.gen_clues.z(),
-            },
-        })
-    end,
+            }
+        }
+    end
 }

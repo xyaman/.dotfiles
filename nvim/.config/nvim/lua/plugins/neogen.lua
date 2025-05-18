@@ -1,13 +1,8 @@
 return {
-    "danymat/neogen", 
-    config = true,
+    "danymat/neogen",
+    event = "VeryLazy",
+    opts = {},
     keys = {
-        {
-            "<leader>nf",
-            function ()
-                require("neogen").generate()
-            end,
-            desc = "Insert documentation"
-        }
+        {"<leader>nf", function() require("neogen").generate() end, desc = "Insert documentation"}
     }
 }

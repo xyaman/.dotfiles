@@ -1,4 +1,5 @@
 return {
+    "Yazeed1s/oh-lucy.nvim",
     {
         "rose-pine/neovim",
         name = "rose-pine",

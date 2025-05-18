@@ -24,7 +24,11 @@ require("lazy").setup("plugins", {
     rocks = { enabled = false },
 })
 
-vim.cmd("colorscheme rose-pine")
+-- vim.cmd("colorscheme rose-pine")
+vim.cmd.colorscheme "oh-lucy-evening"
+
+-- set treesitter context highlight
+vim.api.nvim_set_hl(0, "TreesitterContextBottom", { underline = true, sp = "#6D5978" })
 
 -- Enable the new experimental command-line features.
 require('vim._extui').enable {}

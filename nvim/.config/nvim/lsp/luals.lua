@@ -8,13 +8,8 @@ return {
         Lua = {
             completion = { callSnippet = 'Replace' },
             format = { enable = true },
-            hint = {
-                enable = true,
-                arrayIndex = 'Disable',
-            },
-            runtime = {
-                version = 'LuaJIT',
-            },
+            hint = { enable = true, arrayIndex = 'Disable' },
+            runtime = { version = 'LuaJIT', },
             workspace = {
                 checkThirdParty = false,
                 library = {

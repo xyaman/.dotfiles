@@ -1,6 +1,7 @@
 local opts = { noremap = true }
 
 vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
 vim.keymap.set(
     "n",
@@ -14,12 +15,10 @@ vim.keymap.set(
 
 vim.keymap.set('n', '<leader>L', '<cmd>Lazy<cr>', { desc = 'Lazy' })
 
--- paste the word in x mode, but doesn't override the yank content
-vim.keymap.set("x", "<leader>p", [["_dP]])
-
--- next greatest remap ever : asbjornHaland
-vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
-vim.keymap.set("n", "<leader>Y", [["+Y]])
+-- Copy/Pasting related keymaps
+vim.keymap.set("x", "<leader>p", [["_dP]]) -- paste the word in x mode, but doesn't override the yank content
+vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]]) -- copy to system clipboard
+vim.keymap.set("n", "<leader>Y", [["+Y]]) -- copy to system clipboard
 
 -- Resize with arrows
 vim.keymap.set("n", "<C-Up>", ":resize +2<CR>", opts)
@@ -30,9 +29,6 @@ vim.keymap.set("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 -- Open netrw
 -- vim.keymap.set("n", "<leader>nt", ":Ex<CR>", opts)
 vim.keymap.set("n", "<leader>nt", ":Oil<CR>", opts)
-
--- Terminal: use ESC to return to NORMAL mode
-vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
 
 -- Some expected behaviours
 vim.keymap.set("n", "Y", "yg$", opts)   -- Y yanks current to end
@@ -61,6 +57,7 @@ vim.keymap.set("n", "<leader>gb", "<cmd>lnext<CR>zz", { desc = "Go to the next e
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI]])
 
 -- print php pre
+-- TODO: use treesitter to print variable under cursor
 vim.keymap.set("n", "<leader>pr", "oecho \"<pre>\";<CR>echo \"</pre>\";<Esc>Oprint_r(");
 
 -- Encodings
@@ -68,6 +65,6 @@ vim.keymap.set("n", "<leader>enc", "<cmd>!chardet %<CR>");
 vim.keymap.set("n", "<leader>euc", "<cmd>e ++enc=euc-jp<CR>");
 vim.keymap.set("n", "<leader>sjis", "<cmd>e ++enc=sjis<CR>");
 
--- See character code (tab, spaces, etc)
-vim.keymap.set("n", "<leader><tab><tab>", "<cmd>set invlist<CR>");
-
+-- Terminal related
+-- use ESC to return to NORMAL mode (have some problems with TUI programs, ex lazygit)
+vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")

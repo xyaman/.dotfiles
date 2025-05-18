@@ -15,27 +15,37 @@ vim.opt.updatetime = 300      -- faster completion (3000ms default)
 vim.opt.wrap = false          -- displays line as one long line
 vim.opt.completeopt = { "menuone", "noselect" }
 vim.opt.colorcolumn = "80"
-vim.opt.hlsearch = false
 
--- vim.opt.clipboard = "unnamedplus" -- https://vim.fandom.com/wiki/Accessing_the_system_clipboard
+-- have one statusline per window, instead of per buffer
+vim.o.laststatus = 3
 
--- testing new option
+-- show always signcolumn (default = auto)
+vim.wo.signcolumn = "yes"
+
+-- see `keymaps.lua`
+-- vim.opt.hlsearch = false
+
+-- Sets how neovim will display certain whitespace characters in the editor.
+-- See `:help 'list'`
+-- and `:help 'listchars'`
+vim.opt.list = true
+vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+
+-- Floating windows (blink, etc)
+vim.o.winborder = 'rounded'
 vim.opt.guicursor = ""
--- vim.cmd("set iskeyword+=_")
 
 -- highlight on yank
 vim.api.nvim_create_autocmd('TextYankPost', {
-  pattern = '*',
-  callback = function()
-    vim.highlight.on_yank({
-      higroup = 'IncSearch',
-      timeout = 40,
-    })
-  end,
+    desc = 'Highlight on yank',
+    callback = function()
+        -- Setting a priority higher than the LSP references one.
+        -- vim.hl.on_yank { higroup = 'Visual', priority = 250, timeout = 40 }
+        vim.hl.on_yank { priority = 250, timeout = 40 }
+    end,
 })
 
 -- Global variables (Languages ex.)
-vim.g.zig_fmt_autosave = true
 vim.cmd [[ au BufRead,BufNewFile *.zon setfiletype zig ]]
 vim.filetype.add({
     pattern = { [".*/hypr/.*%.conf"] = "hyprlang" },
