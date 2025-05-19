@@ -2,7 +2,7 @@
 vim.api.nvim_create_autocmd({ "BufReadPre", "BufNewFile" }, {
     once = true,
     callback = function()
-        vim.lsp.enable({ "luals", "vtsls" })
+        vim.lsp.enable({ "luals", "vtsls", "sourcekit" })
     end
 })
 
