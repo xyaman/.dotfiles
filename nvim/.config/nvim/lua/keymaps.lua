@@ -3,17 +3,12 @@ local opts = { noremap = true }
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
-vim.keymap.set(
-    "n",
-    "<leader>vim",
-    function()
-        vim.cmd "e ~/.dotfiles/nvim/.config/nvim/"
-        vim.fn.chdir("~/.dotfiles/nvim/.config/nvim/")
-    end,
-    { desc = "Opens vim config directory." }
-)
+vim.keymap.set("n", "<leader>vim", function()
+	vim.cmd("e ~/.dotfiles/nvim/.config/nvim/")
+	vim.fn.chdir("~/.dotfiles/nvim/.config/nvim/")
+end, { desc = "Opens vim config directory." })
 
-vim.keymap.set('n', '<leader>L', '<cmd>Lazy<cr>', { desc = 'Lazy' })
+vim.keymap.set("n", "<leader>L", "<cmd>Lazy<cr>", { desc = "Lazy" })
 
 -- Copy/Pasting related keymaps
 vim.keymap.set("x", "<leader>p", [["_dP]]) -- paste the word in x mode, but doesn't override the yank content
@@ -31,7 +26,7 @@ vim.keymap.set("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 vim.keymap.set("n", "<leader>nt", ":Oil<CR>", opts)
 
 -- Some expected behaviours
-vim.keymap.set("n", "Y", "yg$", opts)   -- Y yanks current to end
+vim.keymap.set("n", "Y", "yg$", opts) -- Y yanks current to end
 vim.keymap.set("n", "n", "nzzzv", opts) -- n centers the cursor
 vim.keymap.set("n", "N", "Nzzzv", opts) -- N centers the cursor
 vim.keymap.set("n", "J", "mzJ`z", opts)
@@ -55,16 +50,16 @@ vim.keymap.set("n", "<leader>gb", "<cmd>lnext<CR>zz", { desc = "Go to the next e
 -- Misc
 -- Opens replace with the word under the cursor selected
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI]])
-vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
+vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
 -- print php pre
 -- TODO: use treesitter to print variable under cursor
-vim.keymap.set("n", "<leader>pr", "oecho \"<pre>\";<CR>echo \"</pre>\";<Esc>Oprint_r(");
+vim.keymap.set("n", "<leader>pr", 'oecho "<pre>";<CR>echo "</pre>";<Esc>Oprint_r(')
 
 -- Encodings
-vim.keymap.set("n", "<leader>enc", "<cmd>!chardet %<CR>");
-vim.keymap.set("n", "<leader>euc", "<cmd>e ++enc=euc-jp<CR>");
-vim.keymap.set("n", "<leader>sjis", "<cmd>e ++enc=sjis<CR>");
+vim.keymap.set("n", "<leader>enc", "<cmd>!chardet %<CR>")
+vim.keymap.set("n", "<leader>euc", "<cmd>e ++enc=euc-jp<CR>")
+vim.keymap.set("n", "<leader>jis", "<cmd>e ++enc=sjis<CR>")
 
 -- Terminal related
 -- use ESC to return to NORMAL mode (have some problems with TUI programs, ex lazygit)
