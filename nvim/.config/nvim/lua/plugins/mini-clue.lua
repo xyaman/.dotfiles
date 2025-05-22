@@ -25,8 +25,8 @@ return {
                 { mode = "x", keys = "`" },
 
                 -- Registers
-                { mode = "n", keys = '"' },
-                { mode = "x", keys = '"' },
+                { mode = "n", keys = "\"" },
+                { mode = "x", keys = "\"" },
                 { mode = "i", keys = "<C-r>" },
                 { mode = "c", keys = "<C-r>" },
 
@@ -50,8 +50,7 @@ return {
                 delay = 500,
                 config = {
                     border = "rounded",
-                }
-
+                },
             },
 
             clues = {
@@ -62,7 +61,7 @@ return {
                 miniclue.gen_clues.registers(),
                 miniclue.gen_clues.windows(),
                 miniclue.gen_clues.z(),
-            }
+            },
         }
-    end
+    end,
 }

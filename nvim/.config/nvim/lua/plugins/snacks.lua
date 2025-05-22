@@ -23,11 +23,47 @@ return {
     },
     keys = {
         -- Top Pickers & Explorer
-        { "<leader>tt", function() Snacks.picker.files() end, desc = "Picker Files" },
-        { "<leader>tg", function() Snacks.picker.grep() end,  desc = "Picker Grep" },
-        { "<leader>th", function() Snacks.picker.help() end, desc = "Picker help" },
-        { "<leader>tv", function() Snacks.picker.files({ cwd = vim.fn.stdpath("config") }) end, desc = "Find Config File" },
-        { "<leader>tc", function() Snacks.picker.colorschemes({layout = "ivy"}) end, desc = "Colorschemes" },
-        { "<leader>gg", function() Snacks.lazygit() end, desc = "Lazygit" },
+        {
+            "<leader>tt",
+            function()
+                Snacks.picker.files()
+            end,
+            desc = "Picker Files",
+        },
+        {
+            "<leader>tg",
+            function()
+                Snacks.picker.grep()
+            end,
+            desc = "Picker Grep",
+        },
+        {
+            "<leader>th",
+            function()
+                Snacks.picker.help()
+            end,
+            desc = "Picker help",
+        },
+        {
+            "<leader>tv",
+            function()
+                Snacks.picker.files({ cwd = vim.fn.stdpath("config") })
+            end,
+            desc = "Find Config File",
+        },
+        {
+            "<leader>tc",
+            function()
+                Snacks.picker.colorschemes({ layout = "ivy" })
+            end,
+            desc = "Colorschemes",
+        },
+        {
+            "<leader>gg",
+            function()
+                Snacks.lazygit()
+            end,
+            desc = "Lazygit",
+        },
     },
 }

@@ -4,8 +4,8 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 vim.keymap.set("n", "<leader>vim", function()
-	vim.cmd("e ~/.dotfiles/nvim/.config/nvim/")
-	vim.fn.chdir("~/.dotfiles/nvim/.config/nvim/")
+    vim.cmd("e ~/.dotfiles/nvim/.config/nvim/")
+    vim.fn.chdir("~/.dotfiles/nvim/.config/nvim/")
 end, { desc = "Opens vim config directory." })
 
 vim.keymap.set("n", "<leader>L", "<cmd>Lazy<cr>", { desc = "Lazy" })
@@ -54,7 +54,7 @@ vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
 -- print php pre
 -- TODO: use treesitter to print variable under cursor
-vim.keymap.set("n", "<leader>pr", 'oecho "<pre>";<CR>echo "</pre>";<Esc>Oprint_r(')
+vim.keymap.set("n", "<leader>pr", "oecho \"<pre>\";<CR>echo \"</pre>\";<Esc>Oprint_r(")
 
 -- Terminal related
 -- use ESC to return to NORMAL mode (have some problems with TUI programs, ex lazygit)

@@ -37,21 +37,21 @@ vim.opt.guicursor = ""
 
 -- highlight on yank
 vim.api.nvim_create_autocmd("TextYankPost", {
-	desc = "Highlight on yank",
-	callback = function()
-		-- Setting a priority higher than the LSP references one.
-		-- vim.hl.on_yank { higroup = 'Visual', priority = 250, timeout = 40 }
-		vim.hl.on_yank({ priority = 250, timeout = 40 })
-	end,
+    desc = "Highlight on yank",
+    callback = function()
+        -- Setting a priority higher than the LSP references one.
+        -- vim.hl.on_yank { higroup = 'Visual', priority = 250, timeout = 40 }
+        vim.hl.on_yank({ priority = 250, timeout = 40 })
+    end,
 })
 
 -- Global variables (Languages ex.)
 vim.cmd([[ au BufRead,BufNewFile *.zon setfiletype zig ]])
 vim.filetype.add({
-	pattern = { [".*/hypr/.*%.conf"] = "hyprlang" },
-	extension = {
-		cgi = "php",
-	},
+    pattern = { [".*/hypr/.*%.conf"] = "hyprlang" },
+    extension = {
+        cgi = "php",
+    },
 })
 
 -- NEOVIDE (yes... i need to use it sometimes)

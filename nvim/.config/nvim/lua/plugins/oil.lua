@@ -1,7 +1,7 @@
 return {
     "stevearc/oil.nvim",
     dependencies = {
-        { "echasnovski/mini.icons", opts = {} }
+        { "echasnovski/mini.icons", opts = {} },
     },
     opts = {
         use_default_keymaps = false,
@@ -16,6 +16,5 @@ return {
             ["_"] = "actions.open_cwd",
             ["r"] = " <cmd>RunFile<CR>",
         },
-
     },
 }
