@@ -56,11 +56,6 @@ vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 -- TODO: use treesitter to print variable under cursor
 vim.keymap.set("n", "<leader>pr", 'oecho "<pre>";<CR>echo "</pre>";<Esc>Oprint_r(')
 
--- Encodings
-vim.keymap.set("n", "<leader>enc", "<cmd>!chardet %<CR>")
-vim.keymap.set("n", "<leader>euc", "<cmd>e ++enc=euc-jp<CR>")
-vim.keymap.set("n", "<leader>jis", "<cmd>e ++enc=sjis<CR>")
-
 -- Terminal related
 -- use ESC to return to NORMAL mode (have some problems with TUI programs, ex lazygit)
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
