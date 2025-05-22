@@ -40,7 +40,7 @@ return {
 		sources = {
 			default = { "lsp", "path", "snippets", "buffer" },
 			per_filetype = {
-				["copilot-chat"] = { "buffer " },
+				["copilot-chat"] = { "buffer" },
 			},
 		},
 
