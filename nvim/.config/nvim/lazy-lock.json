@@ -18,6 +18,7 @@
   "oh-lucy.nvim": { "branch": "main", "commit": "2d94e9b03efe4c50f4653b6f2b7b200d970fe1aa" },
   "oil.nvim": { "branch": "master", "commit": "685cdb4ffa74473d75a1b97451f8654ceeab0f4a" },
   "plenary.nvim": { "branch": "master", "commit": "857c5ac632080dba10aae49dba902ce3abf91b35" },
+  "refactoring.nvim": { "branch": "master", "commit": "64dbe67bf7c28c864488262d267c799f80cae9ba" },
   "rose-pine": { "branch": "main", "commit": "491a0c77abc7ecb955c27a974091a5968232995f" },
   "run.nvim": { "branch": "main", "commit": "756970d79bb6afa9fa30bb924548b221d88ee1eb" },
   "snacks.nvim": { "branch": "main", "commit": "bc0630e43be5699bb94dadc302c0d21615421d93" },
