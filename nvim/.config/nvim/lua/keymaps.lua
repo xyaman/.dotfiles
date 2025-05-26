@@ -23,7 +23,7 @@ vim.keymap.set("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 
 -- Open netrw
 -- vim.keymap.set("n", "<leader>nt", ":Ex<CR>", opts)
-vim.keymap.set("n", "<leader>nt", ":Oil<CR>", opts)
+vim.keymap.set("n", "-", ":Oil<CR>", opts)
 
 -- Some expected behaviours
 vim.keymap.set("n", "Y", "yg$", opts) -- Y yanks current to end
