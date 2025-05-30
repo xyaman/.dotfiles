@@ -1,4 +1,4 @@
--- install lazy
+-- Install lazy
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.uv.fs_stat(lazypath) then
     vim.fn.system({
@@ -24,7 +24,7 @@ require("lazy").setup("plugins", {
     rocks = { enabled = false },
 })
 
-require("tst")
+require("settings")
 
 -- vim.cmd("colorscheme rose-pine")
 -- vim.cmd.colorscheme("oh-lucy-evening")

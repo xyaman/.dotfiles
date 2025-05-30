@@ -1,5 +1,5 @@
-vim.opt.number = true -- shows line number
-vim.opt.relativenumber = true -- shows relative line numbers
+-- vim.opt.number = true -- shows line number
+-- vim.opt.relativenumber = true -- shows relative line numbers
 vim.opt.cursorline = true -- highlights the current line
 vim.opt.smartindent = true
 vim.opt.expandtab = true -- Use spaces instead of tabs
@@ -36,23 +36,23 @@ vim.o.winborder = "rounded"
 vim.opt.guicursor = ""
 
 -- highlight on yank
-vim.api.nvim_create_autocmd("TextYankPost", {
-    desc = "Highlight on yank",
-    callback = function()
-        -- Setting a priority higher than the LSP references one.
-        -- vim.hl.on_yank { higroup = 'Visual', priority = 250, timeout = 40 }
-        vim.hl.on_yank({ priority = 250, timeout = 40 })
-    end,
-})
+-- vim.api.nvim_create_autocmd("TextYankPost", {
+--     desc = "Highlight on yank",
+--     callback = function()
+--         -- Setting a priority higher than the LSP references one.
+--         -- vim.hl.on_yank { higroup = 'Visual', priority = 250, timeout = 40 }
+--         vim.hl.on_yank({ priority = 250, timeout = 40 })
+--     end,
+-- })
 
 -- Global variables (Languages ex.)
 vim.cmd([[ au BufRead,BufNewFile *.zon setfiletype zig ]])
-vim.filetype.add({
-    pattern = { [".*/hypr/.*%.conf"] = "hyprlang" },
-    extension = {
-        cgi = "php",
-    },
-})
+-- vim.filetype.add({
+--     pattern = { [".*/hypr/.*%.conf"] = "hyprlang" },
+--     extension = {
+--         cgi = "php",
+--     },
+-- })
 
 -- NEOVIDE (yes... i need to use it sometimes)
 vim.g.neovide_position_animation_length = 0
